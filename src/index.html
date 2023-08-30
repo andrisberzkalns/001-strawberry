@@ -3,19 +3,20 @@
 
 <head lang="en">
 	<meta charset="utf-8">
-	<title>My first three.js app</title>
+	<title>Strawberry</title>
 	<link href="./style.css" rel="stylesheet">
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
 	<meta name="description" content="Strawberry">
 	<meta name="author" content="Andris Berzkalns">
+	<link rel="icon" type="image/x-icon" href="/favicon.png">
 </head>
 
 <body class="bg-gradient-to-r from-purple-500 to-pink-500 relative w-screen overflow-x-hidden">
 	<!-- Section: Design Block -->
 
-	<section id="loading-screen">
+	<!-- <section id="loading-screen">
 		<div id="loader"></div>
-	</section>
+	</section> -->
 
 	<div class="fixed">
 		<div id="focus-element" class="z-0"></div>
@@ -25,48 +26,107 @@
 
 	<section class="relative">
 		<div class="bg-white pb-32 md:pb-8">
-			<div class="sm:max-w-sm md:max-w-lg rounded overflow-hidden shadow-lg mx-auto p-6 pt-2">
-				<div class="px-6 pt-8">
+			<div class="sm:max-w-sm md:max-w-lg mx-auto">
+				<div class="px-6 rounded overflow-hidden shadow-lg p-6">
 					<span class="font-bold md:text-xl mb-2">STRAWBERRY</span>
 					<span>/ˈstrɔˌber·i, -bə·ri/</span>
 					<p class="text-gray-700 text-base">
-						A small, juicy, red fruit shaped like a cone with seeds on its surface, or the plant on which this
+						A small, juicy, red fruit shaped like a cone with seeds on its surface, or the plant on which
+						this
 						fruit grows.
 					</p>
 				</div>
+				<div class="mt-4 flex flex-row gap-4">
+					<div class="sm:max-w-sm md:max-w-lg rounded overflow-hidden shadow-lg text-center p-6 w-1/3">
+						<div>
+							Family
+						</div>
+						<span class="font-bold md:text-xl mb-2">Rosaceae</span>
+						<div>
+							Order
+						</div>
+						<span class="font-bold md:text-xl mb-2">Rosales</span>
+						<div>
+							Genus
+						</div>
+						<span class="font-bold md:text-xl mb-2">Fragaria</span>
+					</div>
+					<div class="sm:max-w-sm md:max-w-lg rounded overflow-hidden shadow-lg p-6 w-2/3">
+						<div>
+							Nutritions
+						</div>
+						<li>
+							<span class="font-bold md:text-xl mb-2">Calories</span>
+							<span>29</span>
+						</li>
+						<li>
+							<span class="font-bold md:text-xl mb-2">Fat</span>
+							<span>0.4</span>
+						</li>
+						<li>
+							<span class="font-bold md:text-xl mb-2">Sugar</span>
+							<span>5.4</span>
+						</li>
+						<li>
+							<span class="font-bold md:text-xl mb-2">Carbohydrates</span>
+							<span>5.5</span>
+						</li>
+					</div>
+				</div>
 			</div>
+
 		</div>
-		<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1440 320"><path transform="scale(1,-1) translate(0,-320)" fill="#ffffff" fill-opacity="1" d="M0,224L30,234.7C60,245,120,267,180,234.7C240,203,300,117,360,117.3C420,117,480,203,540,234.7C600,267,660,245,720,213.3C780,181,840,139,900,144C960,149,1020,203,1080,213.3C1140,224,1200,192,1260,192C1320,192,1380,224,1410,240L1440,256L1440,320L1410,320C1380,320,1320,320,1260,320C1200,320,1140,320,1080,320C1020,320,960,320,900,320C840,320,780,320,720,320C660,320,600,320,540,320C480,320,420,320,360,320C300,320,240,320,180,320C120,320,60,320,30,320L0,320Z"></path></svg>
+		<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1440 320">
+			<path transform="scale(1,-1) translate(0,-320)" fill="#ffffff" fill-opacity="1"
+				d="M0,224L30,234.7C60,245,120,267,180,234.7C240,203,300,117,360,117.3C420,117,480,203,540,234.7C600,267,660,245,720,213.3C780,181,840,139,900,144C960,149,1020,203,1080,213.3C1140,224,1200,192,1260,192C1320,192,1380,224,1410,240L1440,256L1440,320L1410,320C1380,320,1320,320,1260,320C1200,320,1140,320,1080,320C1020,320,960,320,900,320C840,320,780,320,720,320C660,320,600,320,540,320C480,320,420,320,360,320C300,320,240,320,180,320C120,320,60,320,30,320L0,320Z">
+			</path>
+		</svg>
 	</section>
 
 	<section class="relative lg:relative my-8 z-50 pt-16">
 		<div class="flex flex-wrap 2xl:flex-nowrap md:flex-row justify-center gap-4">
-				<div class="hidden lg:flex w-[90vw] sm:w-[45vw] lg:w-[30vw] 2xl:w-[20vw] h-[50vh] md:h-[60vh] overflow-hidden justify-center shadow-md rounded-2xl hover:scale-110 transition duration-500 hover:shadow-2xl">
-					<img alt="strawberry" class="max-w-none mx-auto transition duration-500 cursor-pointer max-h-[100%]"  src="/images/strawberry-1.png"/>
-				</div>
-				<div class="flex w-[90vw] sm:w-[45vw] lg:w-[30vw] 2xl:w-[20vw] h-[50vh] md:h-[60vh] overflow-hidden justify-center shadow-md rounded-2xl hover:scale-110 transition duration-500 hover:shadow-2xl">
-					<img alt="strawberry" class="max-w-none mx-auto transition duration-500 cursor-pointer max-h-[100%]"  src="/images/strawberry-4.png"/>
-				</div>
-				<div class="flex w-[90vw] sm:w-[45vw] lg:w-[30vw] 2xl:w-[20vw] h-[50vh] md:h-[60vh] overflow-hidden justify-center shadow-md rounded-2xl hover:scale-110 transition duration-500 hover:shadow-2xl">
-					<img alt="strawberry" class="max-w-none mx-auto transition duration-500 cursor-pointer max-h-[100%]"  src="/images/strawberry-6.png"/>
-				</div>
-				<div class="hidden lg:flex w-[90vw] sm:w-[45vw] lg:w-[30vw] 2xl:w-[20vw] h-[50vh] md:h-[60vh] overflow-hidden justify-center shadow-md rounded-2xl hover:scale-110 transition duration-500 hover:shadow-2xl">
-					<img alt="strawberry" class="max-w-none mx-auto transition duration-500 cursor-pointer max-h-[100%]"  src="/images/strawberry-8.png"/>
-				</div>
-				<div class="flex w-[90vw] sm:w-[45vw] lg:w-[30vw] 2xl:w-[20vw] h-[50vh] md:h-[60vh] overflow-hidden justify-center shadow-md rounded-2xl hover:scale-110 transition duration-500 hover:shadow-2xl">
-					<img alt="strawberry" class="max-w-none mx-auto transition duration-500 cursor-pointer max-h-[100%]"  src="/images/strawberry-10.png"/>
-				</div>
-				<div class="flex w-[90vw] sm:w-[45vw] lg:w-[30vw] 2xl:w-[20vw] h-[50vh] md:h-[60vh] overflow-hidden justify-center shadow-md rounded-2xl hover:scale-110 transition duration-500 hover:shadow-2xl">
-					<img alt="strawberry" class="max-w-none mx-auto transition duration-500 cursor-pointer max-h-[100%]"  src="/images/strawberry-7.png"/>
-				</div>
+			<div
+				class="lg:mt-32 hidden lg:flex w-[90vw] sm:w-[45vw] lg:w-[30vw] 2xl:w-[20vw] h-[50vh] md:h-[60vh] overflow-hidden justify-center shadow-md rounded-2xl hover:scale-110 transition duration-500 hover:shadow-2xl">
+				<img alt="strawberry" class="max-w-none mx-auto transition duration-500 cursor-pointer max-h-[100%]"
+					src="/images/strawberry-1.png" />
+			</div>
+			<div
+				class="lg:mb-32 flex w-[90vw] sm:w-[45vw] lg:w-[30vw] 2xl:w-[20vw] h-[50vh] md:h-[60vh] overflow-hidden justify-center shadow-md rounded-2xl hover:scale-110 transition duration-500 hover:shadow-2xl">
+				<img alt="strawberry" class="max-w-none mx-auto transition duration-500 cursor-pointer max-h-[100%]"
+					src="/images/strawberry-4.png" />
+			</div>
+			<div
+				class="lg:mt-32 flex w-[90vw] sm:w-[45vw] lg:w-[30vw] 2xl:w-[20vw] h-[50vh] md:h-[60vh] overflow-hidden justify-center shadow-md rounded-2xl hover:scale-110 transition duration-500 hover:shadow-2xl">
+				<img alt="strawberry" class="max-w-none mx-auto transition duration-500 cursor-pointer max-h-[100%]"
+					src="/images/strawberry-6.png" />
+			</div>
+			<div
+				class="lg:mb-32 hidden lg:flex w-[90vw] sm:w-[45vw] lg:w-[30vw] 2xl:w-[20vw] h-[50vh] md:h-[60vh] overflow-hidden justify-center shadow-md rounded-2xl hover:scale-110 transition duration-500 hover:shadow-2xl">
+				<img alt="strawberry" class="max-w-none mx-auto transition duration-500 cursor-pointer max-h-[100%]"
+					src="/images/strawberry-8.png" />
+			</div>
+			<div
+				class="lg:mt-32 flex w-[90vw] sm:w-[45vw] lg:w-[30vw] 2xl:w-[20vw] h-[50vh] md:h-[60vh] overflow-hidden justify-center shadow-md rounded-2xl hover:scale-110 transition duration-500 hover:shadow-2xl">
+				<img alt="strawberry" class="max-w-none mx-auto transition duration-500 cursor-pointer max-h-[100%]"
+					src="/images/strawberry-10.png" />
+			</div>
+			<div
+				class="lg:mb-32 flex w-[90vw] sm:w-[45vw] lg:w-[30vw] 2xl:w-[20vw] h-[50vh] md:h-[60vh] overflow-hidden justify-center shadow-md rounded-2xl hover:scale-110 transition duration-500 hover:shadow-2xl">
+				<img alt="strawberry" class="max-w-none mx-auto transition duration-500 cursor-pointer max-h-[100%]"
+					src="/images/strawberry-7.png" />
+			</div>
 		</div>
 
 	</section>
 
-	
+
 	<section class="relative w-screen">
 		<div>
-			<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1440 320"><path fill="#ffffff" fill-opacity="1" d="M0,256L40,234.7C80,213,160,171,240,181.3C320,192,400,256,480,261.3C560,267,640,213,720,202.7C800,192,880,224,960,240C1040,256,1120,256,1200,261.3C1280,267,1360,277,1400,282.7L1440,288L1440,320L1400,320C1360,320,1280,320,1200,320C1120,320,1040,320,960,320C880,320,800,320,720,320C640,320,560,320,480,320C400,320,320,320,240,320C160,320,80,320,40,320L0,320Z"></path></svg>
+			<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1440 320">
+				<path fill="#ffffff" fill-opacity="1"
+					d="M0,256L40,234.7C80,213,160,171,240,181.3C320,192,400,256,480,261.3C560,267,640,213,720,202.7C800,192,880,224,960,240C1040,256,1120,256,1200,261.3C1280,267,1360,277,1400,282.7L1440,288L1440,320L1400,320C1360,320,1280,320,1200,320C1120,320,1040,320,960,320C880,320,800,320,720,320C640,320,560,320,480,320C400,320,320,320,240,320C160,320,80,320,40,320L0,320Z">
+				</path>
+			</svg>
 		</div>
 		<div class="w-screen flex flex-col items-center justify-center mx-auto px-2 bg-white">
 			<div class="text-center mb-4 md:max-w-xl lg:max-w-3xl">
@@ -74,11 +134,15 @@
 					Recipes
 				</h5>
 			</div>
-			<div id="recipies" class="container relative flex flex-row gap-4">
+			<div id="recipies" class="container relative flex flex-col md:flex-row gap-4 flex-wrap xl:flex-nowrap">
 			</div>
 		</div>
 		<div>
-			<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1440 320"><path transform="scale(1,-1) translate(0,-320)" fill="#ffffff" fill-opacity="1" d="M0,192L40,181.3C80,171,160,149,240,154.7C320,160,400,192,480,192C560,192,640,160,720,176C800,192,880,256,960,256C1040,256,1120,192,1200,160C1280,128,1360,128,1400,128L1440,128L1440,320L1400,320C1360,320,1280,320,1200,320C1120,320,1040,320,960,320C880,320,800,320,720,320C640,320,560,320,480,320C400,320,320,320,240,320C160,320,80,320,40,320L0,320Z"></path></svg>
+			<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1440 320">
+				<path transform="scale(1,-1) translate(0,-320)" fill="#ffffff" fill-opacity="1"
+					d="M0,192L40,181.3C80,171,160,149,240,154.7C320,160,400,192,480,192C560,192,640,160,720,176C800,192,880,256,960,256C1040,256,1120,192,1200,160C1280,128,1360,128,1400,128L1440,128L1440,320L1400,320C1360,320,1280,320,1200,320C1120,320,1040,320,960,320C880,320,800,320,720,320C640,320,560,320,480,320C400,320,320,320,240,320C160,320,80,320,40,320L0,320Z">
+				</path>
+			</svg>
 		</div>
 	</section>
 
@@ -268,7 +332,11 @@
 
 	<!--Footer container-->
 	<footer class="relative">
-		<svg transform="scale(1,1)" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1440 320"><path fill="#ffffff" fill-opacity="1" d="M0,256L30,240C60,224,120,192,180,165.3C240,139,300,117,360,128C420,139,480,181,540,197.3C600,213,660,203,720,202.7C780,203,840,213,900,202.7C960,192,1020,160,1080,149.3C1140,139,1200,149,1260,176C1320,203,1380,245,1410,266.7L1440,288L1440,320L1410,320C1380,320,1320,320,1260,320C1200,320,1140,320,1080,320C1020,320,960,320,900,320C840,320,780,320,720,320C660,320,600,320,540,320C480,320,420,320,360,320C300,320,240,320,180,320C120,320,60,320,30,320L0,320Z"></path></svg>
+		<svg transform="scale(1,1)" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1440 320">
+			<path fill="#ffffff" fill-opacity="1"
+				d="M0,256L30,240C60,224,120,192,180,165.3C240,139,300,117,360,128C420,139,480,181,540,197.3C600,213,660,203,720,202.7C780,203,840,213,900,202.7C960,192,1020,160,1080,149.3C1140,139,1200,149,1260,176C1320,203,1380,245,1410,266.7L1440,288L1440,320L1410,320C1380,320,1320,320,1260,320C1200,320,1140,320,1080,320C1020,320,960,320,900,320C840,320,780,320,720,320C660,320,600,320,540,320C480,320,420,320,360,320C300,320,240,320,180,320C120,320,60,320,30,320L0,320Z">
+			</path>
+		</svg>
 		<div class="flex flex-col items-center bg-white text-center text-white dark:bg-neutral-600">
 			<div class="container pt-9">
 				<div class="mb-9 flex justify-center">
@@ -279,11 +347,11 @@
 						</svg>
 					</a> -->
 					<!-- <a aria-label="" href="#!" class="mr-9 text-neutral-800 dark:text-neutral-200"> -->
-						<!-- <svg height="800px" width="800px" version="1.1" id="Layer_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 461.001 461.001" xml:space="preserve" fill="#000000"> -->
+					<!-- <svg height="800px" width="800px" version="1.1" id="Layer_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 461.001 461.001" xml:space="preserve" fill="#000000"> -->
 
-						<!-- </svg>	 -->
-						<!-- <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4" fill="currentColor" viewBox="0 0 24 24"> -->
-							<!-- <g id="SVGRepo_bgCarrier" stroke-width="0"/>
+					<!-- </svg>	 -->
+					<!-- <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4" fill="currentColor" viewBox="0 0 24 24"> -->
+					<!-- <g id="SVGRepo_bgCarrier" stroke-width="0"/>
 							
 							<g id="SVGRepo_tracerCarrier" stroke-linecap="round" stroke-linejoin="round"/>
 							
@@ -292,7 +360,7 @@
 						
 						</svg>
 					</a> -->
-					
+
 					<!-- <a href="#!" class="mr-9 text-neutral-800 dark:text-neutral-200">
 						<svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4" fill="currentColor" viewBox="0 0 24 24">
 							<path
@@ -306,19 +374,19 @@
 								fill-rule="evenodd" clip-rule="evenodd" />
 						</svg>
 					</a> -->
-					<a href="#!" aria-label="Instagram profile" class="mr-9 text-neutral-800 dark:text-neutral-200">
+					<!-- <a href="#!" aria-label="Instagram profile" class="mr-9 text-neutral-800 dark:text-neutral-200">
 						<svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4" fill="currentColor" viewBox="0 0 24 24">
 							<path
 								d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z" />
 						</svg>
-					</a>
-					<a href="#!" aria-label="linkeding profile" class="mr-9 text-neutral-800 dark:text-neutral-200">
+					</a> -->
+					<a href="https://www.linkedin.com/in/andris-b-584265a5/" aria-label="linkeding profile" class="mr-9 text-neutral-800 dark:text-neutral-200">
 						<svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4" fill="currentColor" viewBox="0 0 24 24">
 							<path
 								d="M4.98 3.5c0 1.381-1.11 2.5-2.48 2.5s-2.48-1.119-2.48-2.5c0-1.38 1.11-2.5 2.48-2.5s2.48 1.12 2.48 2.5zm.02 4.5h-5v16h5v-16zm7.982 0h-4.968v16h4.969v-8.399c0-4.67 6.029-5.052 6.029 0v8.399h4.988v-10.131c0-7.88-8.922-7.593-11.018-3.714v-2.155z" />
 						</svg>
 					</a>
-					<a href="#!" aria-label="gitgub profile" class="text-neutral-800 dark:text-neutral-200">
+					<a href="https://github.com/andrisberzkalns" aria-label="gitgub profile" class="text-neutral-800 dark:text-neutral-200">
 						<svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4" fill="currentColor" viewBox="0 0 24 24">
 							<path
 								d="M12 0c-6.626 0-12 5.373-12 12 0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23.957-.266 1.983-.399 3.003-.404 1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576 4.765-1.589 8.199-6.086 8.199-11.386 0-6.627-5.373-12-12-12z" />
@@ -328,9 +396,10 @@
 			</div>
 
 			<!--Copyright section-->
-			<div class="w-full bg-neutral-100 p-4 text-center text-neutral-700 dark:bg-neutral-700 dark:text-neutral-200">
+			<div
+				class="w-full bg-neutral-100 p-4 text-center text-neutral-700 dark:bg-neutral-700 dark:text-neutral-200">
 				© 2023 Copyright:
-				<a class="text-neutral-800 dark:text-neutral-400" href="https://berzkalns.com/">Andris Bērzkalns</a>
+				<a class="text-neutral-800 dark:text-neutral-400" target="_blank" href="https://berzkalns.com/">Andris Bērzkalns</a>
 			</div>
 		</div>
 	</footer>

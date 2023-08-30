@@ -2,6 +2,7 @@ import * as THREE from 'three';
 import { OBJLoader } from 'three/addons/loaders/OBJLoader.js';
 import { MTLLoader } from 'three/addons/loaders/MTLLoader.js';
 import { FontLoader } from 'three/addons/loaders/FontLoader.js';
+import { GLTFLoader } from 'three/addons/loaders/GLTFLoader.js';
 import { OrbitControls } from 'three/examples/jsm/controls/OrbitControls';
 import { TextGeometry } from 'three/addons/geometries/TextGeometry.js';
 import { UnrealBloomPass } from 'three/addons/postprocessing/UnrealBloomPass.js';
@@ -10,13 +11,12 @@ import { RenderPass } from 'three/addons/postprocessing/RenderPass.js';
 import { ShaderPass } from 'three/addons/postprocessing/ShaderPass.js';
 import { OutputPass } from 'three/addons/postprocessing/OutputPass.js';
 import { Reflector } from 'three/addons/objects/Reflector.js';
-import { ColladaLoader } from 'three/examples/jsm/loaders/ColladaLoader.js';
 
-import {
-	Carousel,
-    Lightbox,
-    initTE,
-} from "tw-elements";
+// import {
+// 	Carousel,
+//     Lightbox,
+//     initTE,
+// } from "tw-elements";
 
 // initTE({ Lightbox });
 // initTE({ Carousel });
@@ -33,7 +33,9 @@ manager.onLoad = function ( ) {
 	console.log( 'Loading complete!');
 	const loadingScreen = document.getElementById( 'loading-screen' );
 	setTimeout(() => {
-		loadingScreen.classList.add( 'fade-out' );
+		if (loadingScreen?.classList) {
+			loadingScreen.classList.add( 'fade-out' );
+		}
 	}, 1000);
 	
 	// optional: remove loader from DOM via event listener
@@ -50,6 +52,7 @@ manager.onError = function ( url ) {
 
 const mtlloader = new MTLLoader(manager);
 const fontloader = new FontLoader(manager);
+const gltfLoader = new GLTFLoader(manager);
 
 const DEBUG = false;
 const EDGE_HEIGHT = -1;
@@ -155,7 +158,6 @@ function init() {
 		OBJECTS.pop();
 		OBJECTS.pop();
 	}
-	console.log(aspectRatio);
 
 	// SCENE
 	scene = new THREE.Scene();
@@ -300,9 +302,35 @@ function init() {
 		});
 	});
 
-	Promise.all([fontPromise, modelPromise]).then((values) => {
+	const gltfPromise = new Promise((resolve, reject) => {
+		gltfLoader.load("./assets/models/50s_milkshake_low_poly/scene.gltf", function ( gltf ) {
+			resolve(gltf);
+		});
+	});
+
+	Promise.all([fontPromise, modelPromise, gltfPromise]).then((values) => {
 		const font = values[0];
 		const object = values[1];
+		// const object2 = values[2].scene;
+		// object2.position.x = 0;
+		// object2.position.y = 2;
+		// object2.position.z = 0;
+		// object2.scale.x = 0.12;
+		// object2.scale.y = 0.12;
+		// object2.scale.z = 0.12;
+		// object2.castShadow = true;
+		// object2.receiveShadow = true;
+		// object2.renderOrder = 3;
+		// object2.traverse( function( child ) { 
+		// 	if ( child.isMesh ) {
+		// 		child.castShadow = true;
+		// 		child.receiveShadow = true;
+		// 	}
+		
+		// } );
+		// scene.add( object2 );
+		// console.log(values);
+		// console.log(object2);
 
 		// TEXT
 		const geometry = new TextGeometry(HEADER.TEXT, {
@@ -369,7 +397,6 @@ function init() {
 			newObject.children.forEach(child => {
 				child.geometry.center();
 			});
-			console.log(newObject)
 			// newObject.center();
 			// var box = new THREE.Box3().setFromObject( newObject );
 			// box.getCenter( newObject.position ); // this re-sets the mesh position
@@ -438,8 +465,8 @@ function init() {
 		// 		sphere.vector.x = sphere.vector.x + (lookIndexX * 0.0001);;
 		// 	});
 		// });
-
 	}
+
 
 	window.addEventListener( 'resize', onWindowResize );
 }
@@ -502,9 +529,7 @@ function onWindowResize() {
 	
 	camera.aspect = window.innerWidth / window.innerHeight;
 	aspectRatio = window.innerWidth / window.innerHeight;
-	console.log(aspectRatio);
 
-	console.log(window);
 	renderer.setSize( window.innerWidth, window.innerHeight );
 	camera.updateProjectionMatrix();
 
