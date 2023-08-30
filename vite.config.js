@@ -4,14 +4,15 @@ import path from 'path';
 import { normalizePath } from 'vite'
 import tailwindcss from 'tailwindcss'
 
-export default defineConfig({
+export default {
   root: 'src',
+  base: '',
   build: {
     outDir: '../dist'
   },
   content: [
-    "./src/index.html",
-    "./src/**/*.{js,ts,jsx,tsx}",
+    "./index.html",
+    "./**/*.{js,ts,jsx,tsx}",
   ],
   plugins: [
     viteStaticCopy({
@@ -23,4 +24,4 @@ export default defineConfig({
       ],
     }),
   ]
-});
+};
