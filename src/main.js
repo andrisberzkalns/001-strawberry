@@ -21,6 +21,8 @@ import { Reflector } from 'three/addons/objects/Reflector.js';
 // initTE({ Lightbox });
 // initTE({ Carousel });
 
+console.log(window.devicePixelRatio);
+
 const manager = new THREE.LoadingManager(() => {
 
 });
@@ -33,13 +35,11 @@ manager.onLoad = function ( ) {
 	console.log( 'Loading complete!');
 	const loadingScreen = document.getElementById( 'loading-screen' );
 	setTimeout(() => {
-		if (loadingScreen?.classList) {
-			loadingScreen.classList.add( 'fade-out' );
-		}
+		loadingScreen.classList.add( 'fade-out' );
 	}, 1000);
 	
 	// optional: remove loader from DOM via event listener
-	// loadingScreen.addEventListener( 'transitionend', onTransitionEnd );
+	loadingScreen.addEventListener( 'transitionend', onTransitionEnd );
 };
 
 manager.onProgress = function ( url, itemsLoaded, itemsTotal ) {
@@ -171,7 +171,7 @@ function init() {
 	// RENDERER
 	renderer = new THREE.WebGLRenderer( {antialias:true, alpha: true} );
 	renderer.setSize( window.innerWidth, window.innerHeight );
-	renderer.setPixelRatio( window.devicePixelRatio );
+	renderer.setPixelRatio( 1.0 );
 	// renderer.setClearColor( 0x000000, 0 ); // the default
 	document.getElementById("focus-element").appendChild( renderer.domElement );
 
@@ -302,22 +302,38 @@ function init() {
 		});
 	});
 
-	const gltfPromise = new Promise((resolve, reject) => {
-		gltfLoader.load("./assets/models/50s_milkshake_low_poly/scene.gltf", function ( gltf ) {
-			resolve(gltf);
+	// const gltfPromise = new Promise((resolve, reject) => {
+	// 	gltfLoader.load("./assets/models/50s_milkshake_low_poly/scene.gltf", function ( gltf ) {
+	// 		resolve(gltf);
+	// 	});
+	// });
+	const objPromise = new Promise((resolve, reject) => {
+		mtlloader.load("./assets/models/icecream/mesh.mtl", function(materials) {
+			materials.preload();
+			const objloader2 = new OBJLoader();
+			objloader2.setMaterials(materials);
+			objloader2.load("./assets/models/icecream/mesh.obj", function(object) {
+				resolve(object);
+			});
 		});
 	});
 
-	Promise.all([fontPromise, modelPromise, gltfPromise]).then((values) => {
+	Promise.all([fontPromise, modelPromise, objPromise]).then((values) => {
 		const font = values[0];
 		const object = values[1];
-		// const object2 = values[2].scene;
-		// object2.position.x = 0;
-		// object2.position.y = 2;
-		// object2.position.z = 0;
-		// object2.scale.x = 0.12;
-		// object2.scale.y = 0.12;
-		// object2.scale.z = 0.12;
+		const object2 = values[2];
+
+		let body = document.body, html = document.documentElement;
+		const pageHeight = Math.max( body.scrollHeight, body.offsetHeight, html.clientHeight, html.scrollHeight, html.offsetHeight );
+		const fullScrollPages = pageHeight / window.innerHeight;
+		const object2Position =  - (fullScrollPages * 4.14 * 2) + 11.5; 
+
+		object2.position.x = 0;
+		object2.position.y = object2Position;
+		object2.position.z = -1;
+		object2.scale.x = 1.5;
+		object2.scale.y = 1.5;
+		object2.scale.z = 1.5;
 		// object2.castShadow = true;
 		// object2.receiveShadow = true;
 		// object2.renderOrder = 3;
@@ -328,7 +344,7 @@ function init() {
 		// 	}
 		
 		// } );
-		// scene.add( object2 );
+		scene.add( object2 );
 		// console.log(values);
 		// console.log(object2);
 

@@ -14,15 +14,16 @@
 <body class="bg-gradient-to-r from-purple-500 to-pink-500 relative w-screen overflow-x-hidden">
 	<!-- Section: Design Block -->
 
-	<!-- <section id="loading-screen">
+	<section id="loading-screen">
+		<div class="w-screen h-screen absolute flex items-center align-middle">
+			<img src="favicon.png" alt="strawberry" class="mx-auto pr-1 pb-1 scale-75"/>	
+		</div>
 		<div id="loader"></div>
-	</section> -->
+	</section>
 
-	<div class="fixed">
-		<div id="focus-element" class="z-0"></div>
-	</div>
-
-	<div class="h-screen w-screen"></div>
+	<section class="h-screen w-screen">
+		<div id="focus-element" class="z-0 fixed"></div>
+	</section>
 
 	<section class="relative">
 		<div class="bg-white pb-32 md:pb-8">
@@ -329,6 +330,9 @@
 		</div>
 	</section>
 
+	<div class="h-[25vh]">
+
+	</div>
 
 	<!--Footer container-->
 	<footer class="relative">
