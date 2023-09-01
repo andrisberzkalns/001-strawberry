@@ -12,17 +12,6 @@ import { ShaderPass } from 'three/addons/postprocessing/ShaderPass.js';
 import { OutputPass } from 'three/addons/postprocessing/OutputPass.js';
 import { Reflector } from 'three/addons/objects/Reflector.js';
 
-// import {
-// 	Carousel,
-//     Lightbox,
-//     initTE,
-// } from "tw-elements";
-
-// initTE({ Lightbox });
-// initTE({ Carousel });
-
-console.log(window.devicePixelRatio);
-
 const manager = new THREE.LoadingManager(() => {
 
 });
@@ -39,7 +28,9 @@ manager.onLoad = function ( ) {
 	}, 1000);
 	
 	// optional: remove loader from DOM via event listener
-	loadingScreen.addEventListener( 'transitionend', onTransitionEnd );
+	loadingScreen.addEventListener( 'transitionend', () => {
+		loadingScreen.classList.add( 'hidden' );
+	} );
 };
 
 manager.onProgress = function ( url, itemsLoaded, itemsTotal ) {
